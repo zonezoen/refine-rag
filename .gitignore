@@ -67,6 +67,8 @@ logs/
 # Vector Store / Embeddings Cache
 chroma_db/
 faiss_index/
+milvus_data/
+rag/08-向量存储/milvus_data/
 *.index
 *.pkl
 *.pickle
