@@ -1,12 +1,18 @@
-from langchain.prompts import ChatPromptTemplate
+import os
+from dotenv import load_dotenv
+from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_deepseek import ChatDeepSeek
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
+
+# 加载环境变量
+load_dotenv()
+
 # 加载文档并构建向量数据库
-loader = TextLoader("90-文档-Data/黑悟空/黑悟空wiki.txt", encoding='utf-8')
+loader = TextLoader("../../99-doc-data/黑悟空/黑悟空wiki.txt", encoding='utf-8')
 data = loader.load()
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=0)
 splits = text_splitter.split_documents(data)

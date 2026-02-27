@@ -15,10 +15,15 @@
 """
 
 # ==================== 导入必要的库 ====================
+import os
 from typing import Literal  # 用于定义字面量类型，限制可选值
+from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate  # 聊天提示模板
-from langchain_core.pydantic_v1 import BaseModel, Field  # Pydantic数据模型
+from pydantic import BaseModel, Field  # Pydantic数据模型
 from langchain_deepseek import ChatDeepSeek  # DeepSeek聊天模型
+
+# 加载环境变量
+load_dotenv()
 
 # ==================== 定义路由数据模型 ====================
 class RouteQuery(BaseModel):

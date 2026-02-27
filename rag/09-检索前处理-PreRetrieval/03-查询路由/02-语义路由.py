@@ -13,15 +13,22 @@
 - 内容分类：将内容路由到不同的处理管道
 - 个性化服务：根据用户偏好选择合适的服务模式
 
-注意：这个示例使用OpenAI的嵌入模型，需要配置相应的API密钥
+注意：这个示例使用本地 HuggingFace 嵌入模型和 DeepSeek API
 """
 
 # ==================== 导入必要的库 ====================
-from langchain.utils.math import cosine_similarity  # 余弦相似度计算工具
+import os
+from dotenv import load_dotenv
+
+# 加载环境变量 - 必须在导入其他模块之前
+load_dotenv()
+
+from langchain_community.utils.math import cosine_similarity  # 余弦相似度计算工具
 from langchain_core.output_parsers import StrOutputParser  # 字符串输出解析器
 from langchain_core.prompts import PromptTemplate  # 提示模板
 from langchain_core.runnables import RunnableLambda, RunnablePassthrough  # 可运行组件
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings  # OpenAI模型和嵌入
+from langchain_huggingface import HuggingFaceEmbeddings  # HuggingFace 嵌入模型
+from langchain_deepseek import ChatDeepSeek  # DeepSeek 聊天模型
 
 # ==================== 定义专家提示模板 ====================
 # 这些模板代表不同的专家角色，每个都有特定的专业领域和回答风格
@@ -59,9 +66,9 @@ story_template = """你是一位熟悉黑悟空故事情节的专家。
 # ==================== 初始化嵌入系统 ====================
 print("正在初始化语义路由系统...")
 
-# 初始化OpenAI嵌入模型
-# 这个模型将文本转换为高维向量，用于语义相似度计算
-embeddings = OpenAIEmbeddings()
+# 使用本地的 HuggingFace 嵌入模型
+from langchain_huggingface import HuggingFaceEmbeddings
+embeddings = HuggingFaceEmbeddings(model_name="BAAI/bge-small-zh")
 
 # 准备提示模板列表
 prompt_templates = [combat_template, story_template]
@@ -113,6 +120,9 @@ def prompt_router(input):
 # ==================== 构建处理链 ====================
 print("正在构建语义路由处理链...")
 
+# 初始化 DeepSeek 模型（在环境变量加载之后）
+llm = ChatDeepSeek(model="deepseek-chat", temperature=0.7)
+
 # 使用LangChain的管道操作符构建完整的处理流程
 chain = (
     # 步骤1：准备输入数据，将查询包装为字典格式
@@ -121,8 +131,8 @@ chain = (
     # 步骤2：执行语义路由，选择合适的提示模板
     | RunnableLambda(prompt_router)
     
-    # 步骤3：使用选定的模板调用ChatGPT生成回答
-    | ChatOpenAI(temperature=0.7)  # 适度的创造性，保持回答的多样性
+    # 步骤3：使用选定的模板调用 DeepSeek 生成回答
+    | llm  # 适度的创造性，保持回答的多样性
     
     # 步骤4：解析输出为字符串格式
     | StrOutputParser()

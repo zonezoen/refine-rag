@@ -17,6 +17,10 @@
 # ==================== 导入必要的库 ====================
 from openai import OpenAI  # OpenAI客户端，用于调用DeepSeek API
 from os import getenv      # 用于获取环境变量
+from dotenv import load_dotenv  # 用于加载.env文件
+
+# ==================== 加载环境变量 ====================
+load_dotenv()  # 从.env文件加载环境变量
 
 # ==================== 初始化DeepSeek客户端 ====================
 # 使用OpenAI兼容的接口调用DeepSeek API

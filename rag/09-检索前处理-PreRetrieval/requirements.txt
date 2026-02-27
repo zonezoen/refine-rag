@@ -1,0 +1,37 @@
+# 检索前处理 - 依赖库清单
+# 安装方法：pip install -r requirements.txt
+
+# ==================== 核心框架 ====================
+langchain>=0.1.0
+langchain-core>=0.1.0
+langchain-community>=0.0.20
+
+# ==================== LLM 提供商 ====================
+langchain-deepseek>=0.1.0
+openai>=1.0.0  # DeepSeek API（兼容 OpenAI 接口）
+
+# 可选：如果使用 OpenAI 的嵌入模型
+# langchain-openai>=0.0.5
+
+# ==================== 向量数据库和嵌入 ====================
+# Chroma 向量数据库
+langchain-chroma>=0.1.0
+chromadb>=0.4.0
+
+# HuggingFace 嵌入模型
+langchain-huggingface>=0.0.1
+sentence-transformers>=2.2.0
+
+# ==================== 文本处理 ====================
+langchain-text-splitters>=0.0.1
+
+# ==================== 数据库支持（可选）====================
+# Neo4j 图数据库（Text-to-Cypher 需要）
+# neo4j>=5.0.0
+
+# YouTube 数据加载（元数据过滤示例需要）
+# youtube-transcript-api>=0.6.0
+# pytube>=15.0.0
+
+# ==================== 工具库 ====================
+python-dotenv>=1.0.0  # 环境变量管理
