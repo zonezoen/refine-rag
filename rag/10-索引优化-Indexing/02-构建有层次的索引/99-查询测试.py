@@ -19,7 +19,7 @@ embedding_function = SentenceTransformer(
 )
 
 # 连接到Milvus
-client = MilvusClient("richman_bge_m3_v2.db")
+client = MilvusClient(uri="http://localhost:19530")
 
 def search_relevant_table(question):
     # 第一层检索：在summary集合中搜索最相关的sheet

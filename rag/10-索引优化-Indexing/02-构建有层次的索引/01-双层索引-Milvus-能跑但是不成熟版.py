@@ -21,10 +21,16 @@ embedding_function = SentenceTransformer(
 )
 
 # 连接到Milvus
-client = MilvusClient("richman_bge_m3.db")
+client = MilvusClient(uri="http://localhost:19530")
 
 # 1. 创建summary向量数据库
-summary_collection_name = "billionaires_summary"
+summary_collection_name = "billionaires_summary_v1"  # 使用不同的名称避免冲突
+
+# 如果集合已存在，先删除
+if client.has_collection(summary_collection_name):
+    logging.info(f"删除已存在的集合: {summary_collection_name}")
+    client.drop_collection(summary_collection_name)
+
 summary_fields = [
     FieldSchema(name="id", dtype=DataType.INT64, is_primary=True, auto_id=True),
     FieldSchema(name="vector", dtype=DataType.FLOAT_VECTOR, dim=1024),
@@ -33,14 +39,20 @@ summary_fields = [
 ]
 
 summary_schema = CollectionSchema(summary_fields, "富豪榜年份摘要")
-if not client.has_collection(summary_collection_name):
-    client.create_collection(
-        collection_name=summary_collection_name,
-        schema=summary_schema
-    )
+client.create_collection(
+    collection_name=summary_collection_name,
+    schema=summary_schema
+)
+logging.info(f"成功创建集合: {summary_collection_name}")
 
 # 2. 创建details向量数据库
-details_collection_name = "billionaires_details"
+details_collection_name = "billionaires_details_v1"  # 使用不同的名称避免冲突
+
+# 如果集合已存在，先删除
+if client.has_collection(details_collection_name):
+    logging.info(f"删除已存在的集合: {details_collection_name}")
+    client.drop_collection(details_collection_name)
+
 details_fields = [
     FieldSchema(name="id", dtype=DataType.INT64, is_primary=True, auto_id=True),
     FieldSchema(name="vector", dtype=DataType.FLOAT_VECTOR, dim=1024),
