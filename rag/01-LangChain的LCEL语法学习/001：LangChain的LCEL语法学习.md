@@ -111,6 +111,7 @@ prompt_02 = ChatPromptTemplate.from_template(
 
 llm = ChatDeepSeek(
     model="deepseek-chat",  # DeepSeek API 支持的模型名称
+   
     temperature=0.7,  # 随机性
     max_tokens=2048,  # 最大输出长度
     api_key=os.getenv("DEEPSEEK_API_KEY")  # 从环境变量加载API key
