@@ -1,4 +1,5 @@
 # refine-rag
+refine-rag 是精进 RAG 的意思。
 最近浏览一下小红书，经常能刷到后端、前端转 RAG、Agent 工程师的笔记，所以我在学习这些内容之后，也准备分享一下我所学到的的知识（之前学习了黄佳老师的课程），一来是巩固一下自己的知识，二来是分享给有需要的朋友。这个系列教程的大概内容是：
 
 1. 简易RAG 学习
@@ -18,3 +19,6 @@
 11. 系统评估
 
 因为 LangChain 只支持 Python 和 TS，而我之前就会 Python，为了降低学习成本，所以本系列教程是用 Python 编程语言。
+
+## 公众号
+![](https://raw.githubusercontent.com/zonezoen/refine-rag/refs/heads/main/rag/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-03-04_133417_224.jpg)
