@@ -90,7 +90,7 @@ print(documents)
 from langchain_community.document_loaders import DirectoryLoader
 
 loader = DirectoryLoader(
-    path="../99-doc-data",
+    path="../../99-doc-data",
     glob="**/*.csv",
     loader_cls=CSVLoader
 )

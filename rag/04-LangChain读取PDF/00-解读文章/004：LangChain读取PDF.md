@@ -122,7 +122,7 @@ for i, page in enumerate(data):
 import pymupdf
 
 # 打开 PDF 文件
-doc = pymupdf.open("../99-doc-data/黑悟空/黑神话悟空.pdf")
+doc = pymupdf.open("../../99-doc-data/黑悟空/黑神话悟空.pdf")
 
 # 提取所有页面的文本
 text = [page.get_text() for page in doc]
@@ -139,19 +139,19 @@ print(f"完整元数据: {doc.metadata}")
 # 遍历每一页，提取详细信息
 for page_num, page in enumerate(doc):
     print(f"\n--- 第 {page_num + 1} 页 ---")
-    
+
     # 提取文本
     text = page.get_text()
     print(f"文本内容: {text[:200]}...")  # 显示前 200 个字符
-    
+
     # 提取图片
     images = page.get_images()
     print(f"图片数量: {len(images)}")
-    
+
     # 获取页面链接
     links = page.get_links()
     print(f"链接数量: {len(links)}")
-    
+
     # 获取页面尺寸
     width, height = page.rect.width, page.rect.height
     print(f"页面尺寸: {width:.2f} x {height:.2f}")

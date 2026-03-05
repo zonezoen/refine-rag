@@ -132,7 +132,7 @@ from langchain_community.document_loaders import JSONLoader
 # 需要先安装：pip install jq
 
 loader = JSONLoader(
-    file_path="../99-doc-data/灭神纪/人物角色.json",
+    file_path="../../99-doc-data/灭神纪/人物角色.json",
     jq_schema='.mainCharacter',  # 提取 mainCharacter 字段
     # jq_schema='.mainCharacter | "姓名：" + .name + "，背景：" + .backstory',  # 格式化输出
     text_content=False  # False 返回 JSON 对象，True 返回纯文本
