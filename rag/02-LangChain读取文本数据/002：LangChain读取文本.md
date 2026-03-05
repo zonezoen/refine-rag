@@ -22,7 +22,7 @@
 
 本文将介绍如何使用 LangChain 读取：
 - TXT 文本文件
-- 目录批量文件
+- 读取目录批量文件
 - JSON 结构化数据
 - 网页数据
 - Markdown 文档
@@ -47,14 +47,6 @@ pip install beautifulsoup4 lxml
 
 # 一键安装所有依赖
 pip install langchain langchain-community jq "unstructured[md]" beautifulsoup4 lxml
-```
-
-### 2. 准备测试数据
-
-创建一个测试文本文件 `设定.txt`：
-
-```
-《黑神话：悟空》的故事可分为六个章节，讲述了天命人踏上取经路，寻找散落的六根遗物，揭开当年真相的故事。
 ```
 
 ## 读取 TXT 文本
@@ -85,10 +77,8 @@ json_docs = json_loader.load()
 print(json_docs)
 ```
 
-**关键点：**
-- `encoding="utf-8"`：处理中文文件必须指定编码
-- 返回的是 `Document` 对象列表，包含 `page_content`（内容）和 `metadata`（元数据）
-- `TextLoader` 会将整个文件作为一个 Document 返回
+需要注意的是，在处理中文的时候，加上`encoding="utf-8"`。
+返回的是 `Document` 对象列表，包含 `page_content`（内容）和 `metadata`（元数据），`TextLoader` 会将整个文件作为一个 Document 返回
 
 ## 读取目录文件
 
@@ -257,7 +247,7 @@ from langchain_unstructured import UnstructuredLoader
 from typing import List
 from langchain_core.documents import Document
 
-# 维基百科页面（需要科学上网）
+# 维基百科页面（需要魔法）
 page_url = "https://zh.wikipedia.org/wiki/%E9%BB%91%E7%A5%9E%E8%AF%9D%EF%BC%9A%E6%82%9F%E7%A9%BA"
 
 def _get_setup_docs_from_url(url: str) -> List[Document]:

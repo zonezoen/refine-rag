@@ -269,7 +269,7 @@ embedding = bge_model.encode(description)
 pip install requests pillow
 
 # 4. 运行代码
-python rag/07-向量嵌入/08-真正的多模态嵌入-JinaAI.py
+python rag/07-向量嵌入与检索/08-真正的多模态嵌入-JinaAI.py
 ```
 
 ### 2. 本地 CLIP
@@ -279,7 +279,7 @@ python rag/07-向量嵌入/08-真正的多模态嵌入-JinaAI.py
 pip install transformers pillow torch
 
 # 2. 运行代码
-python rag/07-向量嵌入/05-多模态嵌入-CLIP版本.py
+python rag/07-向量嵌入与检索/05-多模态嵌入-CLIP版本.py
 ```
 
 ---
