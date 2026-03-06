@@ -1,6 +1,7 @@
 # LangChain 读取表格数据
 
 > 本文是 [refine-rag](https://github.com/zonezoen/refine-rag) 系列教程的第五篇，全面讲解如何处理 CSV、PDF 表格等结构化数据。
+> 本文所有代码都在：https://github.com/zonezoen/refine-rag
 
 ## 目录
 
