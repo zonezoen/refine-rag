@@ -3,7 +3,8 @@ from dotenv import load_dotenv
 load_dotenv() # 加载.env文件中的环境变量
 import numpy as np
 from datasets import Dataset
-from ragas.metrics import Faithfulness, AnswerRelevancy
+# 使用新的导入方式，避免 deprecation 警告
+from ragas.metrics.collections import Faithfulness, AnswerRelevancy
 from ragas.llms import LangchainLLMWrapper
 from ragas.embeddings import LangchainEmbeddingsWrapper
 from langchain_community.chat_models.tongyi import ChatTongyi
