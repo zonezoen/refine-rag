@@ -196,7 +196,7 @@ print(databases)
 
 ## 版本信息
 
-- Milvus: v2.4.15
+- Milvus: v2.5.4
 - etcd: v3.5.5
 - MinIO: RELEASE.2023-03-20T20-16-18Z
 - pymilvus: 建议使用 2.4.x
