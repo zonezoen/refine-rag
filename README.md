@@ -20,5 +20,16 @@ refine-rag 是精进 RAG 的意思。
 
 因为 LangChain 只支持 Python 和 TS，而我之前就会 Python，为了降低学习成本，所以本系列教程是用 Python 编程语言。
 
+## 快速开始
+在根目录新建一个 .env 文件，依次贴入以下密钥即可运行项目代码
+```
+# DeepSeek API 配置密钥
+DEEPSEEK_API_KEY=xxx
+# 千问密钥
+DASHSCOPE_API_KEY=xxx
+# jina 多模态嵌入密钥
+JINA_API_KEY=jina_
+```
+
 ## 公众号
 ![](https://raw.githubusercontent.com/zonezoen/refine-rag/refs/heads/main/rag/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026-03-04_133417_224.jpg)
