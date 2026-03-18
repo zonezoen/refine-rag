@@ -28,7 +28,26 @@ DEEPSEEK_API_KEY=xxx
 # 千问密钥
 DASHSCOPE_API_KEY=xxx
 # jina 多模态嵌入密钥
-JINA_API_KEY=jina_
+JINA_API_KEY=xxx
+```
+
+### 启动 milvus 向量数据库
+部分 Python 文件需要使用 Milvus 向量数据库，按需启动即可
+```bash
+# 1. 进入目录
+cd rag/08-向量存储/
+
+# 2. 启动所有服务
+docker compose up -d
+
+# 3. 查看服务状态
+docker compose ps
+
+# 4. 查看日志（等待启动完成）
+docker compose logs -f milvus-standalone
+
+# 看到这行说明启动成功：
+# [INFO] Milvus Proxy successfully started
 ```
 
 ## 公众号

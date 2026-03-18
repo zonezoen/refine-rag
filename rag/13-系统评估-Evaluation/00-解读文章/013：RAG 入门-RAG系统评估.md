@@ -1,5 +1,5 @@
 
-> 本文是 [refine-rag](https://github.com/zonezoen/refine-rag) 系列教程的第x篇，我们来学习一下在写好一个 RAG 系统之后，怎么去评估 RAG 系统？
+> 本文是 [refine-rag](https://github.com/zonezoen/refine-rag) 系列教程的第二十一篇，我们来学习一下在写好一个 RAG 系统之后，怎么去评估 RAG 系统？
 > 本文所有代码都在：https://github.com/zonezoen/refine-rag
 
 ## 目录
