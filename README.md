@@ -30,6 +30,10 @@ DASHSCOPE_API_KEY=xxx
 # jina 多模态嵌入密钥
 JINA_API_KEY=xxx
 ```
+**如何获取 API Key：**
+- DeepSeek: https://platform.deepseek.com/
+- 千问(DashScope): https://dashscope.aliyun.com/
+- JINA_API：https://jina.ai/
 
 ### 启动 milvus 向量数据库
 部分 Python 文件需要使用 Milvus 向量数据库，按需启动即可
